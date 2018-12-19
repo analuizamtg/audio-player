@@ -9,6 +9,8 @@
   "author": "Ana Luiza",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.16.4"
+    "aws-sdk": "^2.378.0",
+    "express": "^4.16.4",
+    "last.fm.api": "^0.1.3"
   }
 }
