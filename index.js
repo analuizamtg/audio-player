@@ -1,10 +1,10 @@
 const express = require("express");
-const app = express();
 const AWS = require("aws-sdk");
 const API = require("last.fm.api"),
   lastFmApi = new API({
     apiKey: process.env.LASTFM_API_KEY
   });
+const app = express();
 
 const BUCKET_NAME = "audioplayer-aula";
 
@@ -39,7 +39,7 @@ app.get("/play", (req, res) => {
     Bucket: BUCKET_NAME,
     Key: `${mbid}.mp3`
   })
-    .on("httpHeaders", function(statusCode, headers) {
+    .on("httpHeaders", (statusCode, headers) => {
       res.set("Content-Type", headers["content-type"]);
       this.response.httpResponse.createUnbufferedStream().pipe(res);
     })
